@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EDFCDB"
+    tools:context=".WinnerActivity">
+
+    <TextView
+        android:id="@+id/textView_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
+        android:text="WINNER"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:textColor="#FF9900"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+        android:id="@+id/textView_Result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center_horizontal"
+        android:hint="TEAM A"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        android:textColor="#FF9900"
+        app:layout_constraintTop_toBottomOf="@id/textView_display"
+        app:layout_constraintBottom_toTopOf="@id/img_championship"/>
+
+    <ImageView
+        android:id="@+id/img_championship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/championship" />
+
+    <Button
+        android:id="@+id/button_call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:text="CALL"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:onClick="makeCall"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/img_championship"/>
+    <Button
+        android:id="@+id/button_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="MESSAGE"
+        android:layout_marginLeft="8dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp"
+        android:onClick="sendMessage"
+        app:layout_constraintStart_toEndOf="@id/button_call"
+        app:layout_constraintTop_toBottomOf="@id/img_championship"/>
+    <Button
+        android:id="@+id/button_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOCATION"
+        android:layout_marginLeft="8dp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24dp"
+        android:onClick="findLocation"
+        app:layout_constraintStart_toEndOf="@id/button_msg"
+        app:layout_constraintTop_toBottomOf="@id/img_championship"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
