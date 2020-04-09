@@ -6,17 +6,17 @@ public class MealItem {
     private String ingredient;
     private String calories;
     private String link;
-    private int imagesource;
+    private int imageID;
 
     public MealItem (String title, String description,
                      String ingredient, String calories,
-                     String link, int imagesource){
+                     String link, int imageID){
         this.title = title;
         this.description = description;
         this.ingredient = ingredient;
         this.calories = calories;
         this.link = link;
-        this.imagesource = imagesource;
+        this.imageID = imageID;
     }
 
     public String getTitle(){
@@ -28,7 +28,7 @@ public class MealItem {
     public String getIngredient(){ return ingredient;}
     public String getCalories(){ return calories;}
     public String getLink(){ return link;}
-    public int getImagesource(){
-        return imagesource;
+    public int getImageID(){
+        return imageID;
     }
 }
