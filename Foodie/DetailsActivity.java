@@ -1,5 +1,7 @@
 package com.example.foodie_mp5;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.icu.text.CaseMap;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -14,19 +16,21 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         TextView mealTitle = findViewById(R.id.mealTitle);
-        TextView mealDescription = findViewById(R.id.mealInfo);
-        ImageView imageView = findViewById(R.id.mealImage);
+        TextView mealDescription = findViewById(R.id.mealDescription);
         TextView mealIngredient = findViewById(R.id.mealIngredients);
         TextView mealCalories = findViewById(R.id.mealCalories);
         TextView mealLink = findViewById(R.id.mealLink);
 
         mealTitle.setText(getIntent().getStringExtra("Title"));
         mealDescription.setText(getIntent().getStringExtra("Description"));
-        mealIngredient.setText(getIntent().getStringExtra("Ingredient"));
+        mealIngredient.setText(getIntent().getStringExtra("Ingredients"));
         mealCalories.setText(getIntent().getStringExtra("Calories"));
         mealLink.setText(getIntent().getStringExtra("Link"));
-        int img_ID = getIntent().getIntExtra("Image_ID",0);
-        imageView.setImageResource(getIntent().getIntExtra("Image_ID ",0));
+
+        Bundle bundle=this.getIntent().getExtras();
+        int pic=bundle.getInt("image");
+        ImageView image = (ImageView) findViewById(R.id.mealImage);
+        image.setImageResource(pic);
 
 
     }
