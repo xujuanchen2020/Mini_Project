@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         foodAdapter = new MealItemAdapter(this, foodData);
         recyclerView.setAdapter(foodAdapter);
 
-
         loadFoodsData();
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -61,12 +60,13 @@ public class MainActivity extends AppCompatActivity {
     private void loadFoodsData() {
         //load arrays from strings
         foodData.clear();
-        String[] foodTitle = getResources().getStringArray(R.array.foods_titles);
-        String[] foodDescription = getResources().getStringArray(R.array.foods_Description);
-        String[] foodLink = getResources().getStringArray(R.array.foods_link);
-        String[] foodIngredient = getResources().getStringArray(R.array.foods_Ingredients);
-        String[] foodCalories = getResources().getStringArray(R.array.foods_Calories);
-        TypedArray foodImage = getResources().obtainTypedArray(R.array.foods_images);
+        TypedArray foodImage = getResources().obtainTypedArray(R.array.food_images);
+        String[] foodTitle = getResources().getStringArray(R.array.food_titles);
+        String[] foodDescription = getResources().getStringArray(R.array.food_descriptions);
+        String[] foodIngredient = getResources().getStringArray(R.array.food_ingredients);
+        String[] foodCalories = getResources().getStringArray(R.array.food_calories);
+        String[] foodLink = getResources().getStringArray(R.array.food_links);
+
 
         List<String> titles = Arrays.asList(foodTitle);
 
@@ -108,3 +108,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
