@@ -27,10 +27,10 @@ public class WinnerActivity extends AppCompatActivity {
 
         strScoreCount = intent.getExtras().get(MainActivity.END_RESULT).toString();
         winningTeam = intent.getExtras().get(MainActivity.WINNING_TEAM).toString();
-        tv_result.setText(winningTeam);
+
         tv_result.append(" " + strScoreCount);
         result = winningTeam+" "+strScoreCount;
-
+        tv_result.setText(result);
         Log.d(TAG,"WinnerActivity");
 
     }
@@ -49,6 +49,7 @@ public class WinnerActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
         Log.d(TAG,"inside onRestoreInstanceState");
         winningTeam=savedInstanceState.getString("reslut",winningTeam);
+        strScoreCount=savedInstanceState.getString("wonBy",strScoreCount);
     }
 
     @Override
@@ -119,3 +120,4 @@ public class WinnerActivity extends AppCompatActivity {
 
     }
 }
+
