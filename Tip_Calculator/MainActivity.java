@@ -184,6 +184,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    
+    
+    
+    
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -194,30 +198,36 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //noinspection SimplifiableIfStatement
         if (id == R.id.icon_share) {
             Log.d("MainActivity","inside icon share.");
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_SEND);
-            intent.putExtra(Intent.EXTRA_TEXT,"The Bill Amount $" +
+            String alert = "The Bill Amount $" +
                     tvEnterAmount.getText() + ", Tip " + tvTip.getText() +
                     ", Total Price " + tvTotal.getText() +
-                    ", Split by " + (int) numOfPerson + " persons, "+perPerson.getText());
-            intent.setType("text/plain");
-            Intent chooser = Intent.createChooser(intent,"Share with ");
-            if(intent.resolveActivity(getPackageManager())!= null ){
-                startActivity(chooser);
+                    ", Split by " + (int) numOfPerson + " persons, "+perPerson.getText();
 
-            }
+            ShareCompat.IntentBuilder
+                    .from(this)
+                    .setType("text/plain")
+                    .setChooserTitle("Share this text with: ")
+                    .setText(alert)
+   
+                .startChooser();
             return true;
         }else if (id==R.id.icon_info){
             Log.d("MainActivity","inside icon info");
+            String txt = "The dropdown is used to split the total among friends" +
+                  " and the total amount is what each individual must pay.";
+
             AlertDialog.Builder alertBuilder = new AlertDialog.Builder(MainActivity.this);
             alertBuilder.setTitle("Message");
-            alertBuilder.setMessage("The dropdown is used to split the total among friends" +
-                    " and the total amount is what each individual must pay.");
+            alertBuilder.setMessage(txt);
             alertBuilder.show();
             return true;
         }
         return super.onOptionsItemSelected(item);
     }
+
+    
+    
+    
 
     public void onRadioButtonClicker(View view) {
         Log.d("MainActivity","inside onRadioButtonClicker");
