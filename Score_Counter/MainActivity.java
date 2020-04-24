@@ -49,12 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
         super.onSaveInstanceState(outState);
         Log.d(TAG,"inside onSaveInstanceState");
+
+        outState.putString("score_A",tv_A.getText().toString());
+        outState.putString("score_B",tv_B.getText().toString());
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
        super.onRestoreInstanceState(savedInstanceState);
+
+        tv_A.setText(savedInstanceState.getString("score_A"));
+        tv_B.setText(savedInstanceState.getString("score_B"));
     }
+
     @Override
     protected void onStart(){
         super.onStart();
@@ -69,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(TAG, "inside of onResume");
+
 
         Log.d(TAG, "end of onResume");
     }
@@ -139,7 +147,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else if(bCount == 5) {
             result = bCount - aCount;
-
             intent.putExtra(END_RESULT, result);
             intent.putExtra(WINNING_TEAM, "TEAM B:");
             startActivity(intent);
