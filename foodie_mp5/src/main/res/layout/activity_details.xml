@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mealTitle"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:hint="title"/>
+
+        <ImageView
+            android:id="@+id/mealImage"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/mealDescription"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:hint="description"/>
+
+
+        <TextView
+            android:id="@+id/mealIngredients"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:hint="ingredient"/>
+
+        <TextView
+            android:id="@+id/mealCalories"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:hint="calories"/>
+
+
+        <TextView
+            android:id="@+id/mealLink"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="8dp"
+            android:clickable="true"
+            android:autoLink="all"
+            android:hint="www.google.com"/>
+
+    </LinearLayout>
+
+</ScrollView>

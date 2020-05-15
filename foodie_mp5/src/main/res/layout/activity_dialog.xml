@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@color/colorAccent"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        android:text="Add Item"
+        android:padding="16dp"/>
+
+    <EditText
+        android:id="@+id/dialog_item_title"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Food Name"
+        android:layout_margin="8dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/dialog_description"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Description"
+        android:layout_margin="8dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/dialog_ingredients"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Ingredients"
+        android:layout_margin="8dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/dialog_calories"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Calories"
+        android:layout_margin="8dp"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/dialog_link"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Link to recipe"
+        android:layout_margin="8dp"
+        android:inputType="text" />
+
+</LinearLayout>

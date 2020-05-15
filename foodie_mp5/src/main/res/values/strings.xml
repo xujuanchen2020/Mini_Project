@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">foodie_MP5</string>
+    <string name="action_settings">Settings</string>
+    <string name="place_holder">place holder</string>
+
+    <array name="food_images">
+        <item>@drawable/beet</item>
+        <item>@drawable/blackberries</item>
+        <item>@drawable/blueberries</item>
+        <item>@drawable/cabbage</item>
+        <item>@drawable/corns</item>
+        <item>@drawable/eggplant</item>
+        <item>@drawable/fig</item>
+        <item>@drawable/grapes</item>
+        <item>@drawable/passion_fruit</item>
+        <item>@drawable/plum</item>
+        <item>@drawable/prunes</item>
+        <item>@drawable/sweet_potato</item>
+    </array>
+
+    <array name="food_titles">
+        <item>1.Beets</item>
+        <item>2.Blackberries</item>
+        <item>3.Blueberries</item>
+        <item>4.Cabbages</item>
+        <item>5.Corns</item>
+        <item>6.Eggplants</item>
+        <item>7.Figs</item>
+        <item>8.Grapes</item>
+        <item>9.Passion Fruit</item>
+        <item>10.Plums</item>
+        <item>11.Prunes</item>
+        <item>12.Sweet potatoes</item>
+    </array>
+
+    <array name="food_descriptions">
+        <item>1.Description: organic beets</item>
+        <item>2.Description: organic blackberries</item>
+        <item>3.Description: organic blueberries</item>
+        <item>4.Description: organic cabbages</item>
+        <item>5.Description: organic corns</item>
+        <item>6.Description: organic eggplants</item>
+        <item>7.Description: organic figs</item>
+        <item>8.Description: organic grapes</item>
+        <item>9.Description: organic passion fruit</item>
+        <item>10.Description: organic plums</item>
+        <item>11.Description: organic prunes</item>
+        <item>12.Description: organic sweet potato</item>
+    </array>
+
+    <array name="food_ingredients">
+        <item>1.Ingredients: purple fruit and vegetables</item>
+        <item>2.Ingredients: purple fruit and vegetables</item>
+        <item>3.Ingredients: purple fruit and vegetables</item>
+        <item>4.Ingredients: purple fruit and vegetables</item>
+        <item>5.Ingredients: purple fruit and vegetables</item>
+        <item>6.Ingredients: purple fruit and vegetables</item>
+        <item>7.Ingredients: purple fruit and vegetables</item>
+        <item>8.Ingredients: purple fruit and vegetables</item>
+        <item>9.Ingredients: purple fruit and vegetables</item>
+        <item>10.Ingredients: purple fruit and vegetables</item>
+        <item>11.Ingredients: purple fruit and vegetables</item>
+        <item>12.Ingredients: purple fruit and vegetables</item>
+    </array>
+
+    <array name="food_calories">
+        <item>Calories: 10_cal</item>
+        <item>Calories: 20_cal</item>
+        <item>Calories: 30_cal</item>
+        <item>Calories: 40_cal</item>
+        <item>Calories: 50_cal</item>
+        <item>Calories: 60_cal</item>
+        <item>Calories: 70_cal</item>
+        <item>Calories: 80_cal</item>
+        <item>Calories: 90_cal</item>
+        <item>Calories: 100_cal</item>
+        <item>Calories: 110_cal</item>
+        <item>Calories: 120_cal</item>
+    </array>
+
+
+    <array name="food_links">
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+    </array>
+
+
+</resources>

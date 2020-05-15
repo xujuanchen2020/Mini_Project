@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">foodie_MP5</string>
+    <string name="action_settings">Settings</string>
+    <string name="place_holder">place holder</string>
+
+    <array name="food_images">
+        <item>@drawable/beet</item>
+        <item>@drawable/blackberries</item>
+        <item>@drawable/blueberries</item>
+        <item>@drawable/cabbage</item>
+        <item>@drawable/corns</item>
+        <item>@drawable/eggplant</item>
+        <item>@drawable/fig</item>
+        <item>@drawable/grapes</item>
+        <item>@drawable/passion_fruit</item>
+        <item>@drawable/plum</item>
+        <item>@drawable/prunes</item>
+        <item>@drawable/sweet_potato</item>
+    </array>
+
+    <array name="food_titles">
+        <item> Remolachas </item>
+        <item> Moras </item>
+        <item> Arándanos </item>
+        <item> Coles </item>
+        <item> Callos </item>
+        <item> Berenjenas </item>
+        <item> Higos </item>
+        <item> Uvas </item>
+        <item> Fruta de la pasión </item>
+        <item> Ciruelas </item>
+        <item> Ciruelas pasas </item>
+        <item> Batatas </item>
+    </array>
+
+    <array name="food_descriptions">
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+        <item>Description</item>
+    </array>
+
+    <array name="food_ingredients">
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+        <item>Ingredients</item>
+    </array>
+
+    <array name="food_calories">
+        <item>Calories: 10_cal</item>
+        <item>Calories: 20_cal</item>
+        <item>Calories: 30_cal</item>
+        <item>Calories: 40_cal</item>
+        <item>Calories: 50_cal</item>
+        <item>Calories: 60_cal</item>
+        <item>Calories: 70_cal</item>
+        <item>Calories: 80_cal</item>
+        <item>Calories: 90_cal</item>
+        <item>Calories: 100_cal</item>
+        <item>Calories: 110_cal</item>
+        <item>Calories: 120_cal</item>
+    </array>
+
+    <array name="food_links">
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+        <item>www.google.com</item>
+    </array>
+
+
+</resources>
