@@ -1,49 +1,48 @@
 package com.example.androidfinalproject2020;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.RotateDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
+import android.telephony.SmsManager;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Objects;
 
 
 public class HomeActivity extends AppCompatActivity {
 
-    private Button logoutBtn, addBtn, deleteBtn;
-    private TextView textConsumedCals;
+    private Button logoutBtn, addBtn, deleteBtn, alarmBtn,messageBtn, callBtn;
+    private TextView textConsumedCals, textTotalCals;
     private String stringConsumedCals;
+    private String stringTotalCals;
 
     // Calender by Rene
     private TextView tt;
     public static final int TEXT_REQUEST = 1;
+    private static final int PERMISSION_REQUEST_CODE = 0;
 
     // Shared preference
-    private Float mCount = 0f;
+    private float mCount = 0f;
+    private float mTotalCalories = 2500f;
     private int mColor;
-    // Key for current count
+    // Key
     private final String COUNT_KEY = "count";
-    // Key for current color
     private final String COLOR_KEY = "color";
+    private final String TOTAL_KEY = "total colories";
     // Shared preferences object
     private SharedPreferences mPreferences;
     // Name of shared preferences file
@@ -54,15 +53,68 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        // go back the parent activity
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_keyboard_backspace_black_24dp);
         setTitle("Go Back");
 
+        sendMessage();
+        makeCall();
+        alarm();
         logout();
         add();
         delete();
         setCircularProgressBar();
         pickCalender();
+    }
+
+    private void makeCall() {
+        callBtn = (Button)findViewById(R.id.call_button);
+        callBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                makePhoneCall();
+            }
+        });
+    }
+
+    private void makePhoneCall() {
+        Intent intentCall = new Intent(Intent.ACTION_DIAL);
+
+        if (intentCall.resolveActivity(getPackageManager()) != null) {
+            startActivity(intentCall);
+        }
+    }
+
+    private void sendMessage() {
+        messageBtn = (Button)findViewById(R.id.message_button);
+
+        messageBtn.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intentMsm = new Intent(Intent.ACTION_SEND);
+                intentMsm.putExtra(Intent.EXTRA_TEXT,0);
+                intentMsm.setType("text/plain");
+                Intent chooser = Intent.createChooser(intentMsm,"Share with");
+                if(intentMsm.resolveActivity(getPackageManager()) != null ){
+                    startActivity(chooser);
+                }
+            }
+        });
+    }
+    private void alarm() {
+        // click button add
+        alarmBtn = (Button)findViewById(R.id.alarm_btn);
+        alarmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent_alarm = new Intent(HomeActivity.this,
+                                               NotificationActivity.class);
+                startActivity(intent_alarm);
+
+            }
+        });
     }
 
     private void logout() {
@@ -71,8 +123,8 @@ public class HomeActivity extends AppCompatActivity {
         logoutBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent intentLogout = new Intent(HomeActivity.this, MainActivity.class);
+                startActivity(intentLogout);
 
             }
         });
@@ -84,7 +136,8 @@ public class HomeActivity extends AppCompatActivity {
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_add = new Intent(HomeActivity.this, MainRecyclerActivity.class);
+                Intent intent_add = new Intent(HomeActivity.this,
+                                               MainRecyclerActivity.class);
                 startActivity(intent_add);
 
             }
@@ -97,19 +150,21 @@ public class HomeActivity extends AppCompatActivity {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mCount = mCount - Float.valueOf(stringConsumedCals);
-                if (mCount >0f){
-                    textConsumedCals.setText(String.valueOf(mCount));
-                    circularProgressBar.setProgress(mCount);
+                // recall the last calories for the delete button
+                if (stringConsumedCals != null){
+                    float temp = mCount - Float.valueOf(stringConsumedCals);
+                    textConsumedCals.setText(String.valueOf(temp));
+                    circularProgressBar.setProgress(temp);
                 }
-                else {
-                    mCount = 0f;
+                else{ // make sure not crash if didn't add calories
+                    mCount = mCount - 0f;
                     textConsumedCals.setText(String.valueOf(mCount));
                     circularProgressBar.setProgress(mCount);
                 }
             }
         });
     }
+
 
     private void setCircularProgressBar() {
         // set CircularProgressBar
@@ -118,7 +173,7 @@ public class HomeActivity extends AppCompatActivity {
         circularProgressBar.setProgressBarWidth(30); // in DP
         circularProgressBar.setBackgroundProgressBarWidth(30); // in DP
         circularProgressBar.setRoundBorder(true);
-        circularProgressBar.setProgressMax(3000f);
+        circularProgressBar.setProgressMax(2500f);
 
         // Initialize views, color, preferences
         textConsumedCals = (TextView) findViewById(R.id.text_consumed_calories);
@@ -145,7 +200,7 @@ public class HomeActivity extends AppCompatActivity {
             mCount = mCount + Float.valueOf(stringConsumedCals);
             textConsumedCals.setText(String.valueOf(mCount));
             circularProgressBar.setProgress(mCount);
-            if (mCount >= 3000f) {
+            if (mCount >= 2500f) {
                 Toast.makeText(HomeActivity.this,
                                "Too many calories today.", Toast.LENGTH_SHORT).show();
 
@@ -250,8 +305,6 @@ public class HomeActivity extends AppCompatActivity {
         super.onDestroy();
 
     }
-
-
 
 
     // Calender by Rene
